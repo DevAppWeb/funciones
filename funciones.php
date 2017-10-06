@@ -15,7 +15,7 @@ if (empty($_POST)) {
                 <form class="form-font" name="Formregistro" 
                       action="funciones.php" method="POST">
                     <div class="form-section">
-                        <label for="input"> Nombre: </Label> 
+                        <label for="input"> Cadena: </Label> 
                         <input id="nombre" type="text" name="input" size="30" /> 
                     </div>
                     <input class="submit" type="submit" 
