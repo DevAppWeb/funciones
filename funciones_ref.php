@@ -9,9 +9,8 @@ if (empty($_POST)) {
             <title>Form Entrada Datos</title>
         </head>
         <body>
-            <h1> Formulario de Registro de Cliente </h1>
+            <h1>Entrada Datos</h1>
             <div class="capaform">
-
                 <form class="form-font" name="Formregistro" 
                       action="funciones_ref.php" method="POST">
                     <div class="form-section">
@@ -27,15 +26,16 @@ if (empty($_POST)) {
     <?php
 } else {
 
-    function checkEnding($word, $ending, &$pos) {
-        $pos = strpos($word, $ending);
+    function checkStr($word, $str, &$pos) {
+        $pos = strpos($word, $str);
         return ($pos !== false);
     }
+    
+    define('STRING', "ero");
 
     $input = filter_input(INPUT_POST, 'input', FILTER_SANITIZE_STRING);
     $words = str_word_count($input, 1);
-
-    define('ENDING', "ero");
+    
     ?>
 
     <!DOCTYPE html>
@@ -47,10 +47,10 @@ if (empty($_POST)) {
         <body>
             <?php
             foreach ($words as $word) {
-                if (checkEnding($word, ENDING, $pos)) {
-                    echo "<h1>La palabra $word contiene " . ENDING . " en la posición $pos</h1>";
+                if (checkStr($word, STRING, $pos)) {
+                    echo "<h1>La palabra $word contiene " . STRING . " en la posición $pos</h1>";
                 } else {
-                    echo "<h1>La palabra $word no contiene " . ENDING . " al final</h1>";
+                    echo "<h1>La palabra $word no contiene " . STRING . " al final</h1>";
                 }
             }
             ?>

@@ -9,9 +9,8 @@ if (empty($_POST)) {
             <title>Form Entrada Datos</title>
         </head>
         <body>
-            <h1> Formulario de Registro de Cliente </h1>
+            <h1>Entrada Datos</h1>
             <div class="capaform">
-
                 <form class="form-font" name="Formregistro" 
                       action="funciones.php" method="POST">
                     <div class="form-section">
@@ -31,14 +30,16 @@ if (empty($_POST)) {
         $pos = strpos($word, $ending);
         return (($pos !== false) && ($pos === strlen($word) - strlen($ending)));
     }
+    
+    define('ENDING', "ero");
 
     $input = filter_input(INPUT_POST, 'input', FILTER_SANITIZE_STRING);
     $words = str_word_count($input, 1);
     
-    define('ENDING', "ero");
     ?>
 
     <!DOCTYPE html>
+
     <html>
         <head>
             <meta charset = "UTF-8">
